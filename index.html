@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 4</title>
+    <title>Module 5</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
@@ -47,8 +47,14 @@
         <section class="hero">
             <div class="container">
             <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-            <button type="button" class="hero-btn">Заказать услугу</button>
+            <button type="button" data-modal-open class="hero-btn">Заказать услугу</button>
             </div>
+            <div class="backdrop is-hidden" data-modal>
+                <div class="modal">
+                    <button data-modal-close class="cross">&#10006</button>
+                </div>
+            </div>
+
         </section>
 
         <!--Hang-->
@@ -101,9 +107,20 @@
             <div class="container">
             <h2 class="product-title">Чем мы занимаемся</h2>
             <ul class="product-list">
-                <li class="product-item"><img src="./images/img1.jpg" alt="работа на компьютере" width="370" height="294" class="product-item-img"></li>
-                <li class="product-item"><img src="./images/img2.jpg" alt="работа на телефоне" width="370" height="294" class="product-item-img"></li>
-                <li class="product-item"><img src="./images/img3.jpg" alt="работа на планшете" width="370" height="294" class="product-item-img"></li>
+                <li class="product-item">
+                    <img src="./images/img1.jpg" alt="работа на компьютере" width="370" height="294" class="product-item-img">
+                    <div class="product-item-info">
+                        Десктопные приложения
+                    </div>
+                </li>
+                <li class="product-item">
+                    <img src="./images/img2.jpg" alt="работа на телефоне" width="370" height="294" class="product-item-img">
+                    <div class="product-item-info">Мобильные приложения</div>
+                </li>
+                <li class="product-item">
+                    <img src="./images/img3.jpg" alt="работа на планшете" width="370" height="294" class="product-item-img">
+                    <div class="product-item-info">Дизайнерские решения</div>
+                </li>
             </ul>
             </div>
         </section>
@@ -368,5 +385,6 @@
             </div>
         </div>
     </footer>
+    <script src="./js/modal.js"></script>
 </body>
 </html>

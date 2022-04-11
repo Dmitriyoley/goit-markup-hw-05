@@ -12,6 +12,9 @@
   --secondary-bg-color: #2f303a;
   --third-bg-color: #f5f4fa;
   --fourth-bg-color: rgba(255, 255, 255, 0.1);
+
+  /* Анимации */
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 h1,
@@ -96,6 +99,7 @@ img {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 
   color: var(--primery-title-color);
   font-family: var(--main-font);
@@ -107,6 +111,17 @@ img {
 .navi-item-link:hover,
 .navi-item-link:focus {
   color: var(--accent-color);
+}
+.navi-item-link:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 4px;
+  background: var(--accent-color);
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+
 }
 .navi-contact {
   margin-left: auto;
@@ -185,6 +200,42 @@ img {
   border: none;
   border-radius: 4px;
 }
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 500ms;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background: var(--primery-white-color);
+  box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024 ,0px 1px 3px 0px #0000001F;
+  border-radius: 4px;
+}
+.cross {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  background: inherit;
+
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 /* Hang */
 .hang-list {
   display: flex;
@@ -241,6 +292,23 @@ img {
 }
 .product-list .product-item + .product-item {
   margin-left: 30px;
+}
+.product-item {
+  position: relative;
+}
+
+.product-item-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: rgba(47, 48, 58, 0.8);
+  font-weight: 700;
+  color: var(--primery-white-color);
+  text-transform: uppercase;
 }
 /* Our team */
 .team {
@@ -410,13 +478,41 @@ img {
   margin-bottom: 0;
 }
 .page-item-link {
-  text-decoration: none;
+  position: relative;
   display: block;
+
 }
 .page-item-link:hover,
 .page-item-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  
+}
+
+.page-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-box {
+  background-color:rgba(33, 150, 243, 0.9);
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 63px 24px;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: var(--animation);
+}
+.overlay-text {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--primery-white-color);
+}
+.page-item-link:hover .overlay-box,
+.page-item-link:focus .overlay-box {
+  opacity: 1;
+  transform: translateY(0);
 }
 .page-item-box {
   padding: 20px 24px;
