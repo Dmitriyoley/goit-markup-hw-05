@@ -107,20 +107,27 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition:var(--animation);
 }
 .navi-item-link:hover,
 .navi-item-link:focus {
   color: var(--accent-color);
 }
-.navi-item-link:hover::after {
+.navi-item-link::after {
   content: "";
   position: absolute;
   width: 100%; 
   height: 4px;
   background: var(--accent-color);
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   border-radius: 2px;
+  opacity: 0;
+  transition: var(--animation);
+}
+.navi-item-link:hover::after,
+.navi-item-link:focus::after{
+  opacity: 1;
 
 }
 .navi-contact {
@@ -138,6 +145,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: var(--animation);
 }
 .navi-contact-mail:hover,
 .navi-contact-mail:focus,
@@ -201,6 +209,7 @@ img {
   border-radius: 4px;
 }
 .backdrop {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -221,6 +230,9 @@ img {
   border-radius: 4px;
 }
 .cross {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   width: 30px;
   height: 30px;
@@ -371,6 +383,7 @@ img {
   height: 44px;
   border-radius: 50%;
   color: var(--primery-icon-color);
+  transition: var(--animation);
 }
 .team-icon-item:not(:last-child) {
   margin-right: 10px;
@@ -412,6 +425,7 @@ img {
   align-items: center;
   justify-content: center;
   color: var(--primery-icon-color);
+  transition: var(--animation);
 }
 
 .clients-link:hover,
@@ -453,6 +467,7 @@ img {
   text-align: center;
   border-radius: 4px;
   border-color: transparent;
+  transition :var(--animation);
 }
 .page-filters-btn:hover,
 .page-filters-btn:focus {
@@ -480,6 +495,7 @@ img {
 .page-item-link {
   position: relative;
   display: block;
+  transition: var(--animation);
 
 }
 .page-item-link:hover,
@@ -501,7 +517,7 @@ img {
   position: absolute;
   padding: 63px 24px;
   opacity: 0;
-  transform: translateY(50%);
+  transform: translateY(100%);
   transition: var(--animation);
 }
 .overlay-text {
@@ -586,6 +602,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: var(--animation);
 }
 .footer-mail:hover,
 .footer-mail:focus,
@@ -613,6 +630,7 @@ img {
   border-radius: 50%;
   color: var(--primery-title-color);
   background: var(--fourth-bg-color);
+  transition: var(--animation);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
